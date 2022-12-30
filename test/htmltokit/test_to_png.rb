@@ -26,6 +26,7 @@ class HtmlToKit::TestToPNG < ApplicationTest
   private
 
   def assert_example_png_generated
+    FileUtils.mkdir_p tmp_folder_path
     clean_example_png
     refute_path_exists exampe_png_path
     yield
@@ -37,7 +38,11 @@ class HtmlToKit::TestToPNG < ApplicationTest
   end
 
   def exampe_png_path
-    "#{__dir__}/../../tmp/example.png"
+    "#{tmp_folder_path}/example.png"
+  end
+
+  def tmp_folder_path
+    "#{__dir__}/../../tmp"
   end
 
 end
