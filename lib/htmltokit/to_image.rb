@@ -1,5 +1,5 @@
 class HtmlToKit
-  class ToPNG < ActiveMethod::Base
+  class ToImage < ActiveMethod::Base
 
     argument :path, default: nil 
 
