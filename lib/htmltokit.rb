@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-require_relative "htmltokit/version"
 require 'ferrum'
 require 'active_method'
+require_relative "htmltokit/version"
 require_relative "htmltokit/source"
 require_relative "htmltokit/to_image"
+require_relative "htmltokit/to_pdf"
 
 class HtmlToKit
   include ActiveMethod
@@ -18,4 +19,5 @@ class HtmlToKit
   end
 
   active_method :to_image
+  active_method :to_pdf, ToPDF
 end
