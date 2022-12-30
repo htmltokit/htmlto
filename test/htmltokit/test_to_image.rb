@@ -2,42 +2,42 @@
 
 require "test_helper"
 
-class HtmlToKit::TestToPNG < ApplicationTest
+class HtmlToKit::TestToImage < ApplicationTest
 
   it "HtmlToKit#to_image - with URL" do
-    assert_example_png_generated(:png) do |image_path|
+    assert_image_generated(:png) do |image_path|
       HtmlToKit.new('https://example.com').to_image(image_path)
     end
 
-    assert_example_png_generated(:jpg) do |image_path|
+    assert_image_generated(:jpg) do |image_path|
       HtmlToKit.new('https://example.com').to_image(image_path)
     end
   end
 
   it "HtmlToKit#to_image - with HTML string" do
-    assert_example_png_generated(:png) do |image_path|
+    assert_image_generated(:png) do |image_path|
       HtmlToKit.new('<html><body><h1>Hello World!</h1></body></html>').to_image(image_path)
     end
 
-    assert_example_png_generated(:jpg) do |image_path|
+    assert_image_generated(:jpg) do |image_path|
       HtmlToKit.new('<html><body><h1>Hello World!</h1></body></html>').to_image(image_path)
     end
   end
 
   it "HtmlToKit#to_image - with HTML file" do
-    assert_example_png_generated(:png) do |image_path|
+    assert_image_generated(:png) do |image_path|
       file = File.new("#{__dir__}/../support/example.html")
       HtmlToKit.new(file).to_image(image_path)
     end
 
-    assert_example_png_generated(:jpg) do |image_path|
+    assert_image_generated(:jpg) do |image_path|
       file = File.new("#{__dir__}/../support/example.html")
       HtmlToKit.new(file).to_image(image_path)
     end
   end
 
   it "HtmlToKit#to_image - only support PNG and JPEG" do
-    refute_example_png_generated(:gif) do |image_path|
+    refute_image_generated(:gif) do |image_path|
       error = assert_raises RuntimeError do
         HtmlToKit.new('<html><body><h1>Hello World!</h1></body></html>').to_image(image_path)
       end
@@ -47,7 +47,7 @@ class HtmlToKit::TestToPNG < ApplicationTest
 
   private
 
-  def assert_example_png_generated(format)
+  def assert_image_generated(format)
     FileUtils.mkdir_p tmp_folder_path
     image_path = buidl_image_path(format)
     clean_image image_path
@@ -56,7 +56,7 @@ class HtmlToKit::TestToPNG < ApplicationTest
     assert_path_exists image_path
   end
 
-  def refute_example_png_generated(format)
+  def refute_image_generated(format)
     FileUtils.mkdir_p tmp_folder_path
     image_path = buidl_image_path(format)
     clean_image image_path
