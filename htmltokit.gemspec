@@ -4,7 +4,7 @@ require_relative "lib/htmltokit/version"
 
 Gem::Specification.new do |spec|
   spec.name = "htmltokit"
-  spec.version = Htmltokit::VERSION
+  spec.version = HtmlToKit::VERSION
   spec.authors = ["Hopper Gee"]
   spec.email = ["hopper.gee@hey.com"]
 

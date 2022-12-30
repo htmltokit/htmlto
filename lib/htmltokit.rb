@@ -2,7 +2,7 @@
 
 require_relative "htmltokit/version"
 
-module Htmltokit
+module HtmlToKit
   class Error < StandardError; end
   # Your code goes here...
 end
