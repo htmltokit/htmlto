@@ -2,12 +2,10 @@
 
 require "test_helper"
 
-class TestHtmlToKit < Minitest::Test
-  def test_that_it_has_a_version_number
+class TestHtmlToKit < ApplicationTest
+
+  it "it has a version number" do
     refute_nil ::HtmlToKit::VERSION
   end
 
-  def test_it_does_something_useful
-    assert false
-  end
 end
