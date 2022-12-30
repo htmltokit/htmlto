@@ -1,8 +1,8 @@
 # Htmltokit
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/htmltokit`. To experiment with that code, run `bin/console` for an interactive prompt.
+A ruby gem converts HTML to PDF, JPEG and PNG with [ferrum](https://github.com/rubycdp/ferrum)
 
-TODO: Delete this and the text above, and describe your gem
+⚠️ It's still in the very early stage.
 
 ## Installation
 
@@ -14,9 +14,20 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
     $ gem install htmltokit
 
+Install [Chrome](https://www.google.com/chrome/) or [Chromium](https://www.chromium.org/getting-involved/download-chromium)
+
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+html_to_kit = HtmlToKit.new('https://example.com')
+html_to_kit = HtmlToKit.new('<html><body><h1>Hello World!</h1></body></html>')
+html_to_kit = HtmlToKit.new(a_html_file)
+
+html_to_kit.to_image('example.png')
+html_to_kit.to_image('example.jpg')
+
+html_to_kit.to_pdf
+```
 
 ## Development
 
@@ -26,7 +37,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/htmltokit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/htmltokit/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/htmltokit/htmltokit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/htmltokit/htmltokit/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -34,4 +45,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Htmltokit project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/htmltokit/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the Htmltokit project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/htmltokit/htmltokit/blob/main/CODE_OF_CONDUCT.md).
